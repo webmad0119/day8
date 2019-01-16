@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<title>JS</title>
+		<meta charset="utf-8">
+	</head>
+
+	<body>
+
+
+		<h1>JS | Function declarations</h1>
+
+		<script>
+
+
+				// FUNCTION DECLARATIONS
+			 // Function Statement - example 1
+			 function isEven(val) {
+
+			 	if (val % 2 === 0) {
+
+			 		return true
+
+			 	} else {
+
+			 		return false
+			 	}
+			 }
+
+
+			 var value1 = 5, value2 = 12, value3 = 25;
+
+			 if (isEven(value1) === true) console.log(value1 + ' es par')
+			 else console.log(value1 + ' es impar');
+
+			 if (isEven(value2) === true)  console.log(value2 + ' es par')
+			 else console.log(value2 + ' es impar')
+
+			 if (isEven(value3) === true) console.log(value3 + ' es par')
+			 else console.log(value3 + ' es impar')
+
+
+
+
+
+
+
+
+
+
+			 // Function Statement - example 2
+			 function getFullPrice(val){
+
+			 	return val * 1.21
+			 }
+
+			 console.log('El precio final sería de ' + getFullPrice(1000) + '€ (IVA incl.)')
+
+
+
+
+
+
+
+
+
+
+
+			 // Function expression
+			 statement()
+			 expresion()			 //error (not hoisted - not assigned to memory during compilation)
+
+			 function statement(){
+			 	console.log('Disponible en todo el programa')
+			 }
+
+			 var expresion = function(){
+			 	console.log('Disponible solo tras la declaración')
+			 }
+
+
+
+
+
+
+
+
+
+			 // Function Global Object Constructor
+			 var getFullPrice = new Function('val', 'return val * 1.21')
+			 console.log('El precio final sería de ' + getFullPrice(1000) + '€ (IVA incl.)')
+
+
+
+
+
+
+
+
+			 // FUNCTIONS AS FISRT-CLASS OBJECTS
+			 // Pass functions as values
+			 function estimatePrice(price, totalFn) {
+
+			 	if (totalFn !== undefined) {
+						totalFn(price)
+				}
+				else {
+						console.log('Precio total excl. IVA:' + price)
+				}
+			 }
+
+			 function addGeneralVAT(price) {
+			 	console.log('Precio total con IVA gral:' + price * 1.21)
+			 }
+
+			 function addReducedVAT(price) {
+			 	console.log('Precio total con IVA reducido:' + price * 1.19)
+			 }
+
+			 estimatePrice(1000, addGeneralVAT);
+			 estimatePrice(1000, addReducedVAT);
+			 estimatePrice(1000);
+
+
+
+
+
+
+			 // Anonimous functions
+			 document.querySelector('#boton').onclick = function() {
+			 	alert('Interacción')
+			 }
+
+
+
+
+
+			 // Anonimous functions - example 2
+			 function estimatePrice(price, totalFn) {
+
+			 	if (totalFn !== undefined) {
+						totalFn(price)
+				}
+				else {
+						console.log('Precio total excl. IVA:' + price)
+				}
+			}
+
+			 estimatePrice(1000, function(price) {
+			 	console.log('Precio total con IVA gral:' + price * 1.21)
+			 });
+			 estimatePrice(1000, function(price) {
+			 	console.log('Precio total con IVA reducido:' + price * 1.19)
+			 });
+			 estimatePrice(1000);
+
+
+
+
+
+
+
+
+
+
+
+
+
+		</script>
+
+	</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<title>JS</title>
+		<meta charset="utf-8">
+	</head>
+
+	<body>
+
+
+		<h1>JS | Closures & Scope</h1>
+
+		<script>
+
+
+
+
+
+
+
+
+
+			// Closures
+			function count(){
+
+				console.log('Inicio ejecución función')
+
+				var counter = 0
+
+				setInterval(function(){
+					var increase = counter += 5
+					console.log(increase)
+				}, 1000)
+
+				console.log('Fín ejecución función')
+			}
+
+			count()
+
+
+
+
+
+
+
+
+			// Variable scope
+			var age = 25									 //global scope variable
+
+			function whatever() {
+				console.log(age)
+				console.log(window.age)
+				var height = 1.75						 //local scope variable
+			}
+
+			whatever()
+			console.log(height)						 //error
+
+
+
+
+
+
+
+
+
+			// Variable scope: shadowing
+			var a = 1;
+			var b = 2;
+
+			function inner() {
+			      a = 4;     //not using `var`
+			  var b = 3;     //using 'var' - Shadowing the global variable
+			}
+
+			inner();
+			console.log(a);
+			console.log(b);
+
+
+
+
+
+
+
+
+
+			// Variable hoisting:  JavaScript's moving all declarations to the top of the current scope (to the top of the current script or the current function).
+			function changeName() {
+			  console.log("Original name was " + name)
+
+				var name = "Fer"
+
+			  console.log("New name is " + name)
+			}
+
+			changeName()
+
+
+
+
+
+
+
+
+
+			// IIFE: inmedimeately-invoked function expression
+			(function(value) {
+
+				console.log("I am being invoked right at the script execution, with this " + value)
+
+			}('argument'));
+
+
+		</script>
+
+	</body>
+</html>

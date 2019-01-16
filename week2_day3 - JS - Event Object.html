@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<title>JS</title>
+		<meta charset="utf-8">
+	</head>
+
+	<body>
+
+
+		<h1>JS | Event Object</h1>
+
+		<input id="nombre" type="text">
+
+		<h2>Formulario</h2>
+		<form id="nameForm" action="whatever.js" methd="post">
+			<input type="text">
+			<input type="submit" value="enviar">
+		</form>
+
+		<script>
+
+
+					// click event object
+					window.onclick = function(e){
+
+						console.log(e)
+						alert(`Evento de tipo ${e.type} capturado en coordenada ${e.x}, ${e.y}, realizado mediante el botón ${e.button}`)
+					}
+
+
+
+
+					// Keyboard event object
+					nombre.onkeyup = function(e){
+
+						//var content = this.value
+						//var content = nombre.value
+						var content = e.target.value
+
+						e.target.value = content.toUpperCase()
+
+						if (e.keyCode === 27) {
+
+							var remove = confirm("Are you sure you want to remove content?")
+							if (remove) nombre.value = "";
+						}
+					}
+
+
+
+
+
+					// Event preventDefault() method
+					nameForm.onsubmit = function(e){
+						e.preventDefault()
+					}
+
+
+
+
+		</script>
+
+	</body>
+</html>
